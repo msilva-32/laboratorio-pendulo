@@ -1,5 +1,757 @@
-:root{--ink:#172033;--muted:#5f697a;--paper:#f5f6f8;--card:#fff;--line:#d9dde5;--accent:#9f2134;--accent-dark:#761526;--blue:#145da0;--focus:#f2a900;--shadow:0 16px 40px rgba(20,30,50,.08)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}.skip-link{position:absolute;left:1rem;top:-5rem;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:20}.skip-link:focus{top:1rem}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}.header-inner{max-width:1200px;margin:auto;padding:.8rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}.brand{font-weight:750;color:var(--ink);text-decoration:none}.brand span{display:inline-grid;place-items:center;width:2.1rem;height:2.1rem;margin-right:.45rem;background:var(--accent);color:#fff;border-radius:50%}.site-header nav{display:flex;gap:1rem}.site-header nav a,footer a{color:var(--ink);text-underline-offset:4px}.hero,.section,.simulator,footer{max-width:1200px;margin:auto}.hero{padding:5rem 1.25rem 3rem}.eyebrow{margin:0 0 .55rem;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.hero h1{max-width:850px;margin:.2rem 0 1rem;font-family:Georgia,serif;font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.02}.lead{max-width:760px;color:var(--muted);font-size:1.16rem}.status{display:inline-flex;align-items:center;gap:.65rem;margin-top:1.2rem;padding:.65rem .85rem;background:#fff;border:1px solid var(--line);border-radius:.35rem}.status-dot{width:.65rem;height:.65rem;border-radius:50%;background:#a26b00}.status.ready .status-dot{background:#287a45}.section{padding:2.5rem 1.25rem}.section-heading h2,.results-heading h2,.info-grid h2{margin:.2rem 0;font-family:Georgia,serif;font-size:clamp(1.75rem,3.4vw,2.7rem)}.model-tabs{display:grid;grid-template-columns:repeat(6,1fr);margin-top:1.5rem;border:1px solid var(--line);background:#fff}.model-tab{min-height:6.2rem;padding:1rem;text-align:left;background:#fff;border:0;border-right:1px solid var(--line);color:var(--ink);cursor:pointer}.model-tab:last-child{border-right:0}.model-tab span{display:block;color:var(--muted);font-size:.72rem}.model-tab strong{display:block;margin:.25rem 0}.model-tab[aria-selected="true"]{box-shadow:inset 0 -4px var(--accent);background:#fff8f8}.simulator{display:grid;grid-template-columns:minmax(280px,360px) 1fr;gap:1.5rem;padding:1.25rem}.controls,.results{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}.controls{padding:1.5rem}.controls h2{margin:.2rem 0;font-family:Georgia,serif;font-size:1.65rem}.equation{margin:1rem 0;padding:1rem;background:#f3f4f7;border-left:4px solid var(--accent);font-family:Georgia,serif;font-size:1.05rem;overflow-wrap:anywhere}.model-description{color:var(--muted);font-size:.92rem}fieldset{margin:1.25rem 0;padding:0;border:0}legend{margin-bottom:.6rem;font-weight:750}.preset-grid{display:flex;flex-wrap:wrap;gap:.45rem}.preset-grid button,.button-row button,#scale-button{padding:.6rem .75rem;background:#fff;border:1px solid #adb4c0;border-radius:.25rem;color:var(--ink);cursor:pointer}.preset-grid button:hover,.preset-grid button:focus-visible{border-color:var(--accent)}.control{margin:1rem 0}.control label{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;font-weight:650}.control input{width:100%;margin-top:.35rem;padding:.6rem;border:1px solid #adb4c0;border-radius:.2rem;font:inherit}.control small{display:block;margin-top:.2rem;color:var(--muted)}.button-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.4rem}.button-row .primary{background:var(--accent);border-color:var(--accent);color:#fff}.button-row .primary:hover{background:var(--accent-dark)}button:disabled{cursor:wait;opacity:.55}.error,.warning{padding:.75rem;margin-top:1rem;border-left:4px solid var(--accent);background:#fff0f1;color:#6d1220}.results{padding:1.5rem;min-width:0}.results-heading{display:flex;justify-content:space-between;align-items:end;gap:1rem}.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}figure{min-width:0;margin:0;border:1px solid var(--line)}figcaption{padding:.75rem 1rem;border-bottom:1px solid var(--line);font-weight:750}figcaption span{margin-right:.6rem;color:var(--accent)}.chart{min-height:350px;background:#fff}.chart svg{display:block;width:100%;height:auto}.caption{padding:1rem;margin:1rem 0 0;background:#f3f4f7;color:var(--muted)}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}.info-grid article{padding:1.5rem;background:#fff;border-top:4px solid var(--ink)}footer{padding:2.5rem 1.25rem 4rem;color:var(--muted);font-size:.92rem}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
-@media(max-width:900px){.model-tabs{grid-template-columns:repeat(3,1fr)}.model-tab:nth-child(3){border-right:0}.simulator{grid-template-columns:1fr}.chart-grid{grid-template-columns:1fr}}
-@media(max-width:620px){.site-header nav{display:none}.hero{padding-top:3rem}.model-tabs{grid-template-columns:repeat(2,1fr)}.model-tab:nth-child(3){border-right:1px solid var(--line)}.model-tab:nth-child(even){border-right:0}.results-heading{align-items:start;flex-direction:column}.chart{min-height:270px}.info-grid{grid-template-columns:1fr}.button-row{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* ========================================================================== 
+   LABORATORIO DEL PÉNDULO · ESTILO INSPIRADO EN GITHUB PAGES MINIMAL
+
+   MAPA RÁPIDO DE EDICIÓN
+   01. Colores y medidas generales
+   02. Base tipográfica
+   03. Encabezado y navegación
+   04. Portada
+   05. Títulos de sección
+   06. Selector de modelos
+   07. Simulador y controles
+   08. Botones
+   09. Gráficas y resultados
+   10. Información, publicación y pie
+   11. Accesibilidad
+   12. Adaptación para pantallas pequeñas
+   ========================================================================== */
+
+/* 01. COLORES Y MEDIDAS GENERALES
+   Cambiá estas variables para modificar el aspecto de todo el sitio. */
+:root {
+  --text: #222222;
+  --muted: #727272;
+  --background: #ffffff;
+  --soft-background: #f7f7f7;
+  --border: #e5e5e5;
+  --border-strong: #c9c9c9;
+  --link: #267cb9;
+  --link-dark: #155a8a;
+  --accent: #267cb9;
+  --danger: #b42336;
+  --focus: #f0a500;
+  --content-width: 1120px;
+  --controls-width: 330px;
+  --radius: 4px;
+}
+
+/* 02. BASE TIPOGRÁFICA
+   El texto común usa 16 px y una medida de línea apta para lectura académica. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--link-dark);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+code {
+  padding: 0.12rem 0.3rem;
+  background: var(--soft-background);
+  border-radius: 3px;
+  font-family:
+    ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.9em;
+}
+
+/* 03. ENCABEZADO Y NAVEGACIÓN
+   .brand controla el nombre del sitio.
+   .site-header nav controla los enlaces Modelos, Simulador, Método y Publicación. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  width: min(100% - 2rem, var(--content-width));
+  min-height: 58px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.brand span {
+  display: inline-grid;
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-right: 0.55rem;
+  place-items: center;
+  background: var(--text);
+  border-radius: 50%;
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.site-header nav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--link);
+}
+
+/* 04. PORTADA
+   .hero h1 controla el título principal.
+   .lead controla el subtítulo. */
+.hero,
+.section,
+.simulator,
+footer {
+  width: min(100% - 2rem, var(--content-width));
+  margin-inline: auto;
+}
+
+.hero {
+  padding: 3.4rem 0 2.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin: 0.2rem 0 1rem;
+  color: var(--text);
+  font-size: clamp(2.05rem, 4.5vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.16;
+}
+
+.lead {
+  max-width: 780px;
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.35rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--soft-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.status-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: 0 0 auto;
+  background: #a26b00;
+  border-radius: 50%;
+}
+
+.status.ready .status-dot {
+  background: #287a45;
+}
+
+/* 05. TÍTULOS DE SECCIÓN
+   .eyebrow es el rótulo pequeño situado encima de cada título. */
+.section {
+  padding: 2.6rem 0;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  color: var(--link);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.section-heading h2,
+.results-heading h2,
+.info-grid h2,
+.publication h2 {
+  margin: 0.15rem 0 0.65rem;
+  font-size: clamp(1.4rem, 2.7vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.section-intro {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+/* 06. SELECTOR DE MODELOS
+   .model-tab corresponde a cada botón generado por renderTabs() en app.js. */
+.model-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 1.4rem;
+  overflow: hidden;
+  background: var(--background);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+}
+
+.model-tab {
+  min-height: 5.2rem;
+  padding: 0.85rem 1rem;
+  background: var(--background);
+  border: 0;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.model-tab:nth-child(3n) {
+  border-right: 0;
+}
+
+.model-tab:nth-child(n + 4) {
+  border-bottom: 0;
+}
+
+.model-tab span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.model-tab strong {
+  display: block;
+  margin-top: 0.18rem;
+  font-size: 0.93rem;
+  font-weight: 600;
+}
+
+.model-tab:hover {
+  background: var(--soft-background);
+}
+
+.model-tab[aria-selected="true"] {
+  background: #f3f8fc;
+  box-shadow: inset 4px 0 var(--accent);
+  color: var(--link-dark);
+}
+
+/* 07. SIMULADOR Y CONTROLES
+   .controls es el panel izquierdo.
+   .results es el panel derecho. */
+.simulator {
+  display: grid;
+  grid-template-columns: minmax(280px, var(--controls-width)) minmax(0, 1fr);
+  gap: 1.4rem;
+  padding-block: 0.4rem 2.8rem;
+}
+
+.controls,
+.results {
+  background: var(--background);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+}
+
+.controls {
+  align-self: start;
+  padding: 1.35rem;
+}
+
+.controls h2 {
+  margin: 0.15rem 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.equation {
+  margin: 1rem 0;
+  padding: 0.8rem 0.9rem;
+  overflow-wrap: anywhere;
+  background: var(--soft-background);
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+}
+
+.model-description {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+fieldset {
+  margin: 1.25rem 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-bottom: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.preset-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.control {
+  margin: 0.9rem 0;
+}
+
+.control label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.control output {
+  color: var(--link-dark);
+}
+
+.control input {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem 0.6rem;
+  background: var(--background);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  color: var(--text);
+  font: inherit;
+}
+
+.control input:focus {
+  border-color: var(--accent);
+}
+
+.control small {
+  display: block;
+  margin-top: 0.16rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+/* 08. BOTONES
+   .primary corresponde a Ejecutar simulación.
+   #reset-button restablece parámetros.
+   #scale-button restablece las escalas de las gráficas. */
+button,
+.button-link {
+  min-height: 38px;
+  padding: 0.5rem 0.7rem;
+  background: var(--background);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.84rem;
+  line-height: 1.3;
+}
+
+button:hover {
+  background: var(--soft-background);
+  border-color: #9d9d9d;
+}
+
+.preset-grid button {
+  min-height: 32px;
+  padding: 0.38rem 0.55rem;
+  font-size: 0.78rem;
+}
+
+.preset-grid button:hover,
+.preset-grid button:focus-visible {
+  border-color: var(--accent);
+  color: var(--link-dark);
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-top: 1.3rem;
+}
+
+.button-row .primary,
+.button-link:not(.disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.button-row .primary:hover,
+.button-link:not(.disabled):hover {
+  background: var(--link-dark);
+  border-color: var(--link-dark);
+  color: #ffffff;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+/* 09. GRÁFICAS Y RESULTADOS */
+.results {
+  min-width: 0;
+  padding: 1.35rem;
+}
+
+.results-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.results-heading h2 {
+  margin-bottom: 0;
+}
+
+#scale-button {
+  flex: 0 0 auto;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+figure {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+figcaption {
+  padding: 0.6rem 0.75rem;
+  background: var(--soft-background);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+figcaption span {
+  margin-right: 0.45rem;
+  color: var(--link);
+  font-size: 0.72rem;
+}
+
+.chart {
+  min-height: 330px;
+  background: var(--background);
+}
+
+.chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.chart .grid line {
+  stroke: #ececec;
+  stroke-width: 1;
+}
+
+.chart .grid text,
+.chart .axis-label {
+  fill: var(--muted);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+.caption,
+.error,
+.warning {
+  padding: 0.75rem;
+  margin: 1rem 0 0;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+}
+
+.caption {
+  background: var(--soft-background);
+  color: var(--muted);
+}
+
+.error,
+.warning {
+  background: #fff4f5;
+  border-left: 3px solid var(--danger);
+  color: #741c2a;
+}
+
+/* 10. INFORMACIÓN, PUBLICACIÓN Y PIE */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  border-top: 1px solid var(--border);
+}
+
+.info-grid article {
+  padding: 1.3rem;
+  background: var(--soft-background);
+  border-radius: var(--radius);
+}
+
+.info-grid article p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.publication {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+  border-top: 1px solid var(--border);
+}
+
+.author-data {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.3rem 0;
+}
+
+.author-data div {
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border);
+}
+
+.author-data dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.author-data dd {
+  margin: 0.2rem 0 0;
+  font-size: 0.92rem;
+}
+
+#author-orcid {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.article-reference {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.publication-actions {
+  display: flex;
+  min-width: 215px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.7rem;
+  text-align: center;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.button-link.disabled {
+  background: var(--soft-background);
+  color: var(--muted);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.text-link {
+  font-size: 0.82rem;
+}
+
+footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.83rem;
+}
+
+footer p {
+  margin-bottom: 0.35rem;
+}
+
+/* 11. ACCESIBILIDAD */
+.skip-link {
+  position: absolute;
+  top: -5rem;
+  left: 1rem;
+  z-index: 30;
+  padding: 0.65rem 0.85rem;
+  background: var(--text);
+  color: #ffffff;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* 12. ADAPTACIÓN PARA PANTALLAS PEQUEÑAS */
+@media (max-width: 900px) {
+  .simulator {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    position: static;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .publication {
+    grid-template-columns: 1fr;
+  }
+
+  .publication-actions {
+    width: min(100%, 320px);
+  }
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 15px;
+  }
+
+  .header-inner {
+    min-height: 54px;
+  }
+
+  .site-header nav {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 2.4rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .model-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .model-tab:nth-child(3n) {
+    border-right: 1px solid var(--border);
+  }
+
+  .model-tab:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .model-tab:nth-child(n + 4) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .model-tab:nth-child(n + 5) {
+    border-bottom: 0;
+  }
+
+  .info-grid,
+  .author-data {
+    grid-template-columns: 1fr;
+  }
+
+  .results-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .chart {
+    min-height: 270px;
+  }
+
+  .button-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
