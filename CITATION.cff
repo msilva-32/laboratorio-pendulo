@@ -1,11 +1,14 @@
 cff-version: 1.2.0
 message: "Si utilizás este software, citá el recurso con estos datos."
-title: "Laboratorio virtual del péndulo"
+title: "Simulación numérica de modelos lineales y no lineales del péndulo plano"
 type: software
 authors:
-  - family-names: "Silva"
-    given-names: "Mario Andrés"
-version: 0.1.0
+  - family-names: "Silva Francia"
+    given-names: "Mario"
+    affiliation: "CeRP del Litoral, Uruguay"
+    # ORCID: quitá el símbolo # y agregá tu dirección completa.
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+version: 0.2.0
 date-released: 2026-08-10
 license: MIT
 repository-code: "https://github.com/msilva-32/laboratorio-pendulo"
