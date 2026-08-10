@@ -7,5 +7,6 @@ authors:
     given-names: "Mario Andrés"
 version: 0.1.0
 date-released: 2026-08-10
+license: MIT
 repository-code: "https://github.com/msilva-32/laboratorio-pendulo"
 url: "https://msilva-32.github.io/laboratorio-pendulo/"
