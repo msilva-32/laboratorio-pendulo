@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Si utilizás este software, citá el recurso con estos datos."
+title: "Laboratorio virtual del péndulo"
+type: software
+authors:
+  - family-names: "Silva"
+    given-names: "Mario Andrés"
+version: 0.1.0
+date-released: 2026-08-10
+repository-code: "https://github.com/msilva-32/laboratorio-pendulo"
+url: "https://msilva-32.github.io/laboratorio-pendulo/"
