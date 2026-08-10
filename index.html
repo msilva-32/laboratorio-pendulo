@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Laboratorio virtual para comparar seis modelos lineales y no lineales del péndulo plano.">
-  <title>Laboratorio virtual del péndulo</title>
+  <meta name="description" content="Laboratorio interactivo para comparar la evolución temporal y los retratos de fase de seis modelos adimensionales.">
+  <title>Simulación numérica de modelos lineales y no lineales del péndulo plano</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <script defer src="https://cdn.jsdelivr.net/pyodide/v314.0.4/full/pyodide.js"></script>
   <script defer src="assets/js/app.js?v=0.1.1"></script>
@@ -23,13 +23,13 @@
   <main id="inicio">
     <section class="hero" aria-labelledby="titulo-principal">
       <p class="eyebrow">Recurso interactivo para la enseñanza de la Física</p>
-      <h1 id="titulo-principal">Laboratorio virtual del péndulo</h1>
-      <p class="lead">Compará seis modelos mediante la evolución temporal θ(τ) y el retrato de fase (θ, dθ/dτ). El navegador ejecuta la integración numérica con Python.</p>
+      <h1 id="titulo-principal">Simulación numérica de modelos lineales y no lineales del péndulo plano</h1>
+      <p class="lead">Laboratorio interactivo para comparar la evolución temporal θ(τ) y los retratos de fase (θ, dθ/dτ) de seis modelos adimensionales. El navegador ejecuta la integración numérica con Python.</p>
       <div id="python-status" class="status loading" role="status" aria-live="polite"><span class="status-dot" aria-hidden="true"></span>Preparando Python, NumPy y SciPy. La primera carga puede demorar.</div>
     </section>
 
     <section id="modelos" class="section" aria-labelledby="modelos-title">
-      <div class="section-heading"><p class="eyebrow">Secuencia conceptual</p><h2 id="modelos-title">Seis modelos, una coordenada angular</h2></div>
+      <div class="section-heading"><p class="eyebrow">Modelos disponibles</p><h2 id="modelos-title">Del péndulo linealizado a la dinámica no lineal</h2></div>
       <div id="model-tabs" class="model-tabs" role="tablist" aria-label="Selección del modelo"></div>
     </section>
 
@@ -47,7 +47,7 @@
       </aside>
 
       <div class="results">
-        <div class="results-heading"><div><p class="eyebrow">Resultados numéricos</p><h2>Dos representaciones de una misma solución</h2></div><button id="scale-button" type="button">Restablecer escalas</button></div>
+        <div class="results-heading"><div><p class="eyebrow">Resultados de la integración numérica</p><h2>Evolución temporal y retrato de fase</h2></div><button id="scale-button" type="button">Restablecer escalas</button></div>
         <div class="chart-grid">
           <figure><figcaption><span>01</span> Evolución temporal</figcaption><div id="time-chart" class="chart" role="img" aria-label="Gráfica de theta en función del tiempo adimensional"></div></figure>
           <figure><figcaption><span>02</span> Retrato de fase</figcaption><div id="phase-chart" class="chart" role="img" aria-label="Gráfica de velocidad angular adimensional en función de theta"></div></figure>
@@ -57,10 +57,11 @@
       </div>
     </section>
 
-    <section id="informacion" class="info-grid section">
-      <article><p class="eyebrow">Información numérica</p><h2>Integración reproducible</h2><p>Pyodide 314.0.4 ejecuta Python 3.14.2 dentro del navegador, con NumPy 2.4.3 y SciPy 1.18.0. Todas las simulaciones usan <code>solve_ivp</code>, RK45, <code>rtol = 1×10⁻⁹</code>, <code>atol = 1×10⁻¹¹</code> y 6000 puntos uniformes.</p></article>
-      <article><p class="eyebrow">Cómo utilizar el laboratorio</p><h2>Lectura de las gráficas</h2><p>Elegí un modelo, aplicá un caso predeterminado o modificá sus controles y ejecutá la simulación. θ se expresa en radianes; τ representa el tiempo adimensional; dθ/dτ representa la velocidad angular adimensional. Los parámetros carecen de unidades.</p></article>
-    </section>
+<section id="informacion" class="info-grid section">
+  <article><p class="eyebrow">Metodología numérica</p><h2>Configuración de la integración</h2><p>El laboratorio ejecuta Python 3.14.2 en el navegador mediante Pyodide 314.0.4, NumPy 2.4.3 y SciPy 1.18.0. La función
+      <code>solve_ivp</code> integra cada modelo con el método RK45, una tolerancia relativa de <code>rtol = 1×10⁻⁹</code> y una tolerancia absoluta de <code>atol = 1×10⁻¹¹</code>. El programa evalúa cada solución en 6000 valores uniformes del tiempo adimensional.</p></article>
+  <article><p class="eyebrow">Procedimiento de exploración</p><h2>Uso e interpretación de las gráficas</h2><p> Seleccioná un modelo y un caso predeterminado, o modificá los parámetros y las condiciones iniciales. Ejecutá la simulación  y compará la evolución temporal con el retrato de fase. La variable θ representa el desplazamiento angular en radianes, τ corresponde al tiempo adimensional y dθ/dτ representa la velocidad angular adimensional. Los parámetros de cada modelo se expresan en forma adimensional.</p></article>
+</section>
   </main>
 
   <footer><p><strong>Autor:</strong> Mario Andrés Silva</p><p>Software asociado al artículo <cite>Modelización lineal y no lineal de sistemas oscilatorios</cite>. Consultá <a href="CITATION.cff">CITATION.cff</a> para citar el recurso.</p></footer>
