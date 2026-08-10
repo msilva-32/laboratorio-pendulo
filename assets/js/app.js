@@ -31,7 +31,7 @@ const models = [
   {
     id: "linear",
     short: "Péndulo simple",
-    kind: "Lineal · autónomo",
+    kind: "Modelo 1",
 
     title: "Péndulo simple en la aproximación de pequeñas oscilaciones",
 
@@ -73,7 +73,7 @@ const models = [
   {
     id: "viscous",
     short: "Amortiguamiento viscoso",
-    kind: "Lineal · autónomo",
+    kind: "Modelo 2",
 
     title: "Péndulo simple linealizado con amortiguamiento viscoso",
 
@@ -125,7 +125,7 @@ const models = [
   {
     id: "linear_forced",
     short: "Forzado y amortiguado",
-    kind: "Lineal · no autónomo",
+    kind: "Modelo 3",
 
     title:
       "Péndulo simple linealizado, amortiguado y con excitación circular del soporte",
@@ -205,8 +205,8 @@ const models = [
   // ================================================================
   {
     id: "complete",
-    short: "Péndulo completo",
-    kind: "No lineal · autónomo",
+    short: "Péndulo real",
+    kind: "Modelo 4",
 
     title: "Modelo completo del péndulo simple",
 
@@ -248,7 +248,7 @@ const models = [
   {
     id: "quadratic",
     short: "Resistencia cuadrática",
-    kind: "No lineal · autónomo",
+    kind: "Modelo 5",
 
     title: "Péndulo simple completo con resistencia cuadrática",
 
@@ -300,7 +300,7 @@ const models = [
   {
     id: "complete_forced",
     short: "Forzado no lineal",
-    kind: "No lineal · no autónomo",
+    kind: "Modelo 6",
 
     title:
       "Péndulo simple completo, amortiguado y con excitación circular del soporte",
