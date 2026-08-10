@@ -1,6 +1,10 @@
-# Laboratorio virtual del péndulo
+# Simulación numérica de modelos lineales y no lineales del péndulo plano
 
-Laboratorio interactivo para comparar seis modelos lineales y no lineales del péndulo plano. El recurso acompaña un artículo destinado a la *Revista Brasileira de Ensino de Física* y limita la representación a la evolución temporal θ(τ) y el retrato de fase (θ, dθ/dτ).
+Laboratorio computacional interactivo para comparar seis modelos lineales y no lineales del péndulo plano. El recurso acompaña un artículo destinado a la *Revista Brasileira de Ensino de Física* y limita la representación a la evolución temporal θ(τ) y el retrato de fase (θ, dθ/dτ).
+
+**Autor:** Mario Silva Francia  
+**Filiación:** CeRP del Litoral, Uruguay  
+**ORCID:** pendiente de incorporar
 
 El navegador ejecuta Python mediante Pyodide. El lector no necesita instalar programas.
 
@@ -43,10 +47,22 @@ assets/css/styles.css
 assets/js/app.js
 python/models.py
 README.md
+GUIA_DE_EDICION.md
 CITATION.cff
+articulo/README.md
 .nojekyll
 .github/workflows/pages.yml
 ```
+
+## Edición del sitio
+
+`GUIA_DE_EDICION.md` identifica cada título, texto, botón, control, función y sección de estilos. `index.html`, `styles.css` y `app.js` incluyen comentarios numerados para facilitar cambios manuales desde el editor de GitHub.
+
+El diseño adopta una estética inspirada en el tema Minimal de GitHub Pages. La aplicación conserva una disposición amplia para representar las dos gráficas.
+
+## Artículo asociado
+
+La carpeta `articulo` reserva la ruta `articulo/articulo-pendulo.pdf`. La web muestra el botón **Artículo en preparación** hasta que el autor incorpore el PDF y active el enlace según las instrucciones de `GUIA_DE_EDICION.md`.
 
 ## Uso y prueba local
 
@@ -68,11 +84,11 @@ El recurso no incluye diagramas de energía, espectros, secciones de Poincaré, 
 
 ## Citación
 
-La forma recomendada se encuentra en `CITATION.cff`. El proyecto no declara DOI, ORCID, afiliación ni correo electrónico.
+La forma recomendada se encuentra en `CITATION.cff`. El proyecto declara la filiación institucional y deja preparado el campo para incorporar ORCID. El artículo y el software podrán agregar DOI cuando dispongan de uno.
 
 ## Asistencia de inteligencia artificial
 
-El autor utilizó asistencia de inteligencia artificial para apoyar la programación, la documentación y las pruebas. Mario Andrés Silva definió el alcance físico, seleccionó los modelos y conserva la responsabilidad sobre la revisión académica del recurso.
+El autor utilizó asistencia de inteligencia artificial para apoyar la programación, la documentación y las pruebas. Mario Silva Francia definió el alcance físico, seleccionó los modelos y conserva la responsabilidad sobre la revisión académica del recurso.
 
 ## Licencia
 
