@@ -8,16 +8,49 @@ Laboratorio computacional interactivo para comparar seis modelos lineales y no l
 
 El navegador ejecuta Python mediante Pyodide. El lector no necesita instalar programas.
 
-## Modelos
+## Modelos matemáticos
 
-1. Péndulo linealizado: `θ″ + θ = 0`.
-2. Linealizado con rozamiento viscoso: `θ″ + 2ζθ′ + θ = 0`.
-3. Linealizado, amortiguado y con excitación circular: `θ″ + 2ζθ′ + [1 + Γ cos(Ωτ + φ₀)]θ = Γ sen(Ωτ + φ₀)`.
-4. Péndulo simple completo: `θ″ + sen(θ) = 0`.
-5. Completo con rozamiento cuadrático: `θ″ + κθ′|θ′| + sen(θ) = 0`.
-6. Completo, amortiguado y con excitación circular: `θ″ + 2ζθ′ + sen(θ) + Γ sen[θ − (Ωτ + φ₀)] = 0`.
+Los seis modelos describen el movimiento de un péndulo plano mediante la coordenada angular θ. Los tres primeros emplean la aproximación para pequeñas oscilaciones; los tres restantes conservan la dependencia angular completa.
 
-θ representa el desplazamiento angular desde la vertical descendente, τ el tiempo adimensional y `θ′ = dθ/dτ` la velocidad angular adimensional. ζ representa la razón de amortiguamiento, Γ la amplitud adimensional de la excitación, Ω su frecuencia angular adimensional, φ₀ su fase inicial y κ el coeficiente adimensional de rozamiento cuadrático.
+1. **Péndulo simple en la aproximación de pequeñas oscilaciones**
+
+   `θ″ + θ = 0`
+
+   La aproximación `sen(θ) ≃ θ` reduce la ecuación completa a un modelo lineal adecuado para pequeñas amplitudes angulares.
+
+2. **Péndulo simple linealizado con amortiguamiento viscoso**
+
+   `θ″ + 2ζθ′ + θ = 0`
+
+   El modelo incorpora un torque disipativo proporcional a la velocidad angular. El parámetro ζ permite estudiar los regímenes subamortiguado, crítico y sobreamortiguado.
+
+3. **Péndulo simple linealizado, amortiguado y con excitación circular del soporte**
+
+   `θ″ + 2ζθ′ + [1 + Γ cos(Ωτ + φ₀)]θ = Γ sen(Ωτ + φ₀)`
+
+   El movimiento circular del soporte introduce una excitación periódica y una modulación temporal del término restaurador.
+
+4. **Modelo completo del péndulo simple**
+
+   `θ″ + sen(θ) = 0`
+
+   El modelo conserva la dependencia angular completa y permite analizar la variación del período con la amplitud.
+
+5. **Péndulo simple completo con resistencia cuadrática**
+
+   `θ″ + κθ′|θ′| + sen(θ) = 0`
+
+   El torque resistivo resulta proporcional a `θ′|θ′|`. Esta formulación representa una disipación con dependencia cuadrática respecto de la rapidez angular.
+
+6. **Péndulo simple completo, amortiguado y con excitación circular del soporte**
+
+   `θ″ + 2ζθ′ + sen(θ) + Γ sen[θ − (Ωτ + φ₀)] = 0`
+
+   El modelo combina la dependencia angular completa, el amortiguamiento viscoso y la excitación periódica del soporte. Según los parámetros y las condiciones iniciales, puede producir respuestas periódicas, movimientos de gran amplitud y regímenes irregulares.
+
+En todas las ecuaciones, las primas indican derivadas respecto del tiempo adimensional τ. La variable θ representa el desplazamiento angular medido desde la vertical descendente, `θ′ = dθ/dτ` corresponde a la velocidad angular adimensional y `θ″ = d²θ/dτ²` a la aceleración angular adimensional.
+
+El parámetro ζ representa la razón de amortiguamiento; Γ, la intensidad adimensional de la excitación; Ω, la razón entre la frecuencia de excitación y la frecuencia propia; φ₀, la fase inicial del movimiento del soporte; y κ, el coeficiente adimensional de resistencia cuadrática.
 
 ## Decisiones sobre los casos predeterminados
 
