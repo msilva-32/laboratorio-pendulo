@@ -76,4 +76,4 @@ El autor utilizó asistencia de inteligencia artificial para apoyar la programac
 
 ## Licencia
 
-El repositorio no incorpora una licencia hasta que el autor seleccione sus términos.
+El código del laboratorio se distribuye bajo la licencia MIT. Consultá el archivo `LICENSE`.
