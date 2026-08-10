@@ -23,31 +23,73 @@ const POINTS = 6000;
 
 // EDITAR JS 02: contenido de los seis modelos.
 const models = [
+  // ================================================================
+  // MODELO 1
+  // Péndulo simple bajo la aproximación de pequeñas oscilaciones.
+  // El modelo reemplaza sen(θ) por θ y conserva una ecuación lineal.
+  // ================================================================
   {
     id: "linear",
-    short: "Linealizado",
-    kind: "Lineal",
-    title: "Péndulo linealizado",
+    short: "Péndulo simple",
+    kind: "Lineal · autónomo",
+
+    title: "Péndulo simple en la aproximación de pequeñas oscilaciones",
+
     equation: "θ″ + θ = 0",
+
     description:
-      "La aproximación sen(θ) ≃ θ produce una acción restauradora proporcional al desplazamiento angular.",
-    defaults: { theta0: 1, omega0: 0, window: 100, transient: 0 },
+      "La aproximación sen(θ) ≃ θ reduce la ecuación completa a un modelo lineal. Esta formulación resulta adecuada para pequeñas amplitudes angulares y predice oscilaciones armónicas con período independiente de la amplitud.",
+
+    defaults: {
+      theta0: 1,
+      omega0: 0,
+      window: 100,
+      transient: 0,
+    },
+
     parameters: [],
+
     presets: [
-      { label: "0,20 rad", values: { theta0: 0.2 } },
-      { label: "1,00 rad", values: { theta0: 1 } },
-      { label: "2,50 rad", values: { theta0: 2.5 } },
+      {
+        label: "Pequeña: 0,20 rad",
+        values: { theta0: 0.2 },
+      },
+      {
+        label: "Intermedia: 1,00 rad",
+        values: { theta0: 1 },
+      },
+      {
+        label: "Grande: 2,50 rad",
+        values: { theta0: 2.5 },
+      },
     ],
   },
+
+  // ================================================================
+  // MODELO 2
+  // Péndulo linealizado con amortiguamiento viscoso.
+  // El torque disipativo resulta proporcional a la velocidad angular.
+  // ================================================================
   {
     id: "viscous",
-    short: "Viscoso",
-    kind: "Lineal",
-    title: "Péndulo linealizado con rozamiento viscoso",
+    short: "Amortiguamiento viscoso",
+    kind: "Lineal · autónomo",
+
+    title: "Péndulo simple linealizado con amortiguamiento viscoso",
+
     equation: "θ″ + 2ζθ′ + θ = 0",
+
     description:
-      "El parámetro ζ permite comparar respuestas subamortiguadas, críticas y sobreamortiguadas con condiciones iniciales comunes.",
-    defaults: { theta0: 1, omega0: 0, zeta: 0.2, window: 100, transient: 0 },
+      "El modelo incorpora un torque disipativo proporcional a la velocidad angular. La razón de amortiguamiento ζ permite analizar los regímenes subamortiguado, crítico y sobreamortiguado bajo las mismas condiciones iniciales.",
+
+    defaults: {
+      theta0: 1,
+      omega0: 0,
+      zeta: 0.2,
+      window: 100,
+      transient: 0,
+    },
+
     parameters: [
       {
         key: "zeta",
@@ -55,23 +97,45 @@ const models = [
         min: 0,
         max: 3,
         step: 0.01,
-        help: "Parámetro adimensional.",
+        help: "Parámetro adimensional que controla la disipación.",
       },
     ],
+
     presets: [
-      { label: "Subamortiguado", values: { zeta: 0.2 } },
-      { label: "Crítico", values: { zeta: 1 } },
-      { label: "Sobreamortiguado", values: { zeta: 2 } },
+      {
+        label: "Subamortiguado",
+        values: { zeta: 0.2 },
+      },
+      {
+        label: "Amortiguamiento crítico",
+        values: { zeta: 1 },
+      },
+      {
+        label: "Sobreamortiguado",
+        values: { zeta: 2 },
+      },
     ],
   },
+
+  // ================================================================
+  // MODELO 3
+  // Péndulo linealizado y amortiguado con movimiento circular
+  // del punto de suspensión.
+  // ================================================================
   {
     id: "linear_forced",
-    short: "Lineal forzado",
-    kind: "Lineal",
-    title: "Péndulo linealizado, amortiguado y con excitación circular",
-    equation: "θ″ + 2ζθ′ + [1 + Γ cos(Ωτ + φ₀)]θ = Γ sen(Ωτ + φ₀)",
+    short: "Forzado y amortiguado",
+    kind: "Lineal · no autónomo",
+
+    title:
+      "Péndulo simple linealizado, amortiguado y con excitación circular del soporte",
+
+    equation:
+      "θ″ + 2ζθ′ + [1 + Γ cos(Ωτ + φ₀)]θ = Γ sen(Ωτ + φ₀)",
+
     description:
-      "Los casos mantienen ζ y Γ y cambian Ω para estudiar excitaciones por debajo, cerca y por encima de la escala propia.",
+      "El movimiento circular del soporte introduce una excitación periódica y una modulación temporal del término restaurador. Los parámetros ζ, Γ, Ω y φ₀ controlan la disipación, la intensidad, la frecuencia y la fase inicial de la excitación.",
+
     defaults: {
       theta0: 1,
       omega0: 0,
@@ -82,6 +146,7 @@ const models = [
       window: 100,
       transient: 0,
     },
+
     parameters: [
       {
         key: "zeta",
@@ -89,14 +154,23 @@ const models = [
         min: 0,
         max: 2,
         step: 0.01,
+        help: "Parámetro adimensional que controla la disipación.",
       },
-      { key: "gamma", label: "Intensidad, Γ", min: 0, max: 2, step: 0.01 },
+      {
+        key: "gamma",
+        label: "Intensidad de la excitación, Γ",
+        min: 0,
+        max: 2,
+        step: 0.01,
+        help: "Amplitud adimensional de la excitación.",
+      },
       {
         key: "drive",
         label: "Razón de frecuencias, Ω",
         min: 0.05,
         max: 4,
         step: 0.05,
+        help: "Frecuencia de excitación respecto de la frecuencia propia.",
       },
       {
         key: "phase",
@@ -104,63 +178,139 @@ const models = [
         min: -6.283,
         max: 6.283,
         step: 0.001,
-        help: "Radianes.",
+        help: "Fase inicial expresada en radianes.",
       },
     ],
+
     presets: [
-      { label: "Ω = 0,60", values: { drive: 0.6 } },
-      { label: "Ω = 1,00", values: { drive: 1 } },
-      { label: "Ω = 1,40", values: { drive: 1.4 } },
+      {
+        label: "Baja frecuencia",
+        values: { drive: 0.6 },
+      },
+      {
+        label: "Frecuencia propia",
+        values: { drive: 1 },
+      },
+      {
+        label: "Alta frecuencia",
+        values: { drive: 1.4 },
+      },
     ],
   },
+
+  // ================================================================
+  // MODELO 4
+  // Modelo completo del péndulo simple.
+  // Conserva la dependencia no lineal sen(θ).
+  // ================================================================
   {
     id: "complete",
-    short: "Completo",
-    kind: "No lineal",
-    title: "Péndulo simple completo",
+    short: "Péndulo completo",
+    kind: "No lineal · autónomo",
+
+    title: "Modelo completo del péndulo simple",
+
     equation: "θ″ + sen(θ) = 0",
+
     description:
-      "La función sen(θ) conserva la dependencia angular completa y permite comparar amplitudes pequeñas, intermedias y próximas a la separación.",
-    defaults: { theta0: 1, omega0: 0, window: 100, transient: 0 },
+      "El modelo conserva la dependencia angular completa mediante sen(θ). Permite estudiar la variación del período con la amplitud y comparar sus predicciones con las obtenidas mediante la aproximación de pequeñas oscilaciones.",
+
+    defaults: {
+      theta0: 1,
+      omega0: 0,
+      window: 100,
+      transient: 0,
+    },
+
     parameters: [],
+
     presets: [
-      { label: "θ₀ = 0,20", values: { theta0: 0.2 } },
-      { label: "θ₀ = 1,00", values: { theta0: 1 } },
-      { label: "θ₀ = 2,50", values: { theta0: 2.5 } },
+      {
+        label: "Pequeña: 0,20 rad",
+        values: { theta0: 0.2 },
+      },
+      {
+        label: "Intermedia: 1,00 rad",
+        values: { theta0: 1 },
+      },
+      {
+        label: "Grande: 2,50 rad",
+        values: { theta0: 2.5 },
+      },
     ],
   },
+
+  // ================================================================
+  // MODELO 5
+  // Péndulo completo con resistencia cuadrática.
+  // El torque disipativo depende de θ′|θ′|.
+  // ================================================================
   {
     id: "quadratic",
-    short: "Roce cuadrático",
-    kind: "No lineal",
-    title: "Péndulo completo con rozamiento cuadrático",
+    short: "Resistencia cuadrática",
+    kind: "No lineal · autónomo",
+
+    title: "Péndulo simple completo con resistencia cuadrática",
+
     equation: "θ″ + κθ′|θ′| + sen(θ) = 0",
+
     description:
-      "La resistencia depende del cuadrado de la rapidez angular y modifica el decaimiento de la amplitud y la contracción de la trayectoria.",
-    defaults: { theta0: 2.5, omega0: 0, kappa: 0.2, window: 100, transient: 0 },
+      "El modelo incorpora un torque resistivo proporcional a θ′|θ′|. Esta dependencia cuadrática permite representar una disipación dominada por efectos inerciales del fluido y produce un decaimiento no exponencial de la amplitud.",
+
+    defaults: {
+      theta0: 2.5,
+      omega0: 0,
+      kappa: 0.2,
+      window: 100,
+      transient: 0,
+    },
+
     parameters: [
       {
         key: "kappa",
-        label: "Rozamiento cuadrático, κ",
+        label: "Coeficiente de resistencia cuadrática, κ",
         min: 0,
         max: 2,
         step: 0.01,
+        help: "Parámetro adimensional que controla la resistencia cuadrática.",
       },
     ],
+
     presets: [
-      { label: "κ = 0,05", values: { kappa: 0.05 } },
-      { label: "κ = 0,20", values: { kappa: 0.2 } },
-      { label: "κ = 0,80", values: { kappa: 0.8 } },
+      {
+        label: "Resistencia débil",
+        values: { kappa: 0.05 },
+      },
+      {
+        label: "Resistencia intermedia",
+        values: { kappa: 0.2 },
+      },
+      {
+        label: "Resistencia intensa",
+        values: { kappa: 0.8 },
+      },
     ],
   },
+
+  // ================================================================
+  // MODELO 6
+  // Péndulo completo, amortiguado y con movimiento circular
+  // del punto de suspensión.
+  // ================================================================
   {
     id: "complete_forced",
-    short: "Completo forzado",
-    kind: "No lineal",
-    title: "Péndulo completo, amortiguado y con excitación circular",
-    equation: "θ″ + 2ζθ′ + sen(θ) + Γ sen[θ − (Ωτ + φ₀)] = 0",
+    short: "Forzado no lineal",
+    kind: "No lineal · no autónomo",
+
+    title:
+      "Péndulo simple completo, amortiguado y con excitación circular del soporte",
+
+    equation:
+      "θ″ + 2ζθ′ + sen(θ) + Γ sen[θ − (Ωτ + φ₀)] = 0",
+
     description:
-      "La no linealidad, la disipación y la excitación periódica permiten comparar respuestas periódicas, de gran amplitud e irregulares.",
+      "El modelo combina la dependencia angular completa, el amortiguamiento viscoso y la excitación periódica del soporte. Según los parámetros y las condiciones iniciales, permite explorar respuestas periódicas, movimientos de gran amplitud y regímenes irregulares.",
+
     defaults: {
       theta0: 1,
       omega0: 0,
@@ -171,6 +321,7 @@ const models = [
       window: 100,
       transient: 200,
     },
+
     parameters: [
       {
         key: "zeta",
@@ -178,14 +329,23 @@ const models = [
         min: 0,
         max: 2,
         step: 0.01,
+        help: "Parámetro adimensional que controla la disipación.",
       },
-      { key: "gamma", label: "Intensidad, Γ", min: 0, max: 1.5, step: 0.01 },
+      {
+        key: "gamma",
+        label: "Intensidad de la excitación, Γ",
+        min: 0,
+        max: 1.5,
+        step: 0.01,
+        help: "Amplitud adimensional de la excitación.",
+      },
       {
         key: "drive",
         label: "Razón de frecuencias, Ω",
         min: 0.05,
         max: 4,
         step: 0.05,
+        help: "Frecuencia de excitación respecto de la frecuencia propia.",
       },
       {
         key: "phase",
@@ -193,13 +353,23 @@ const models = [
         min: -6.283,
         max: 6.283,
         step: 0.001,
-        help: "Radianes.",
+        help: "Fase inicial expresada en radianes.",
       },
     ],
+
     presets: [
-      { label: "Periódico débil", values: { gamma: 0.1 } },
-      { label: "Gran amplitud", values: { gamma: 0.35 } },
-      { label: "Caótico", values: { gamma: 0.47 } },
+      {
+        label: "Respuesta periódica",
+        values: { gamma: 0.1 },
+      },
+      {
+        label: "Gran amplitud",
+        values: { gamma: 0.35 },
+      },
+      {
+        label: "Régimen irregular",
+        values: { gamma: 0.47 },
+      },
     ],
   },
 ];
